@@ -4,211 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MCG para Latinoamérica - Expertos en consultoría integral para el desarrollo territorial, ambiental y empresarial en toda Latinoamérica">
-    <title>MCG para Latinoamérica | Expertos en Desarrollo Territorial, Ambiental y Empresarial</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>MCG Latinoamérica | Desarrollo Territorial, Ambiental y Empresarial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans bg-gray-50 overflow-x-hidden">
+<body>
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
+    <div id="preloader">
+        <div class="loader-content">
+            <svg class="logo-svg" width="80" height="80" viewBox="0 0 100 100">
+                <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="#4CAF50" stroke-width="4"></path>
+                <path d="M30,30 L70,30 L70,70 L30,70 Z" fill="none" stroke="#4CAF50" stroke-width="4"></path>
+                <text x="50" y="55" text-anchor="middle" font-family="Montserrat" font-size="16" font-weight="bold" fill="#4CAF50">MCG</text>
             </svg>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 py-2">
-            <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20M%20C%20G%20para%20latinoamerica%20%28sin%20fondo%29-01-irneDS3Iz9RSZdKxd5XaSmJG4qzccM.png" alt="MCG Logo" class="h-10 transition-all duration-300">
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="nav-link text-sm text-white">Inicio</a>
-                    <a href="#nosotros" class="nav-link text-sm text-white">Nosotros</a>
-                    <a href="#servicios" class="nav-link text-sm text-white">Servicios</a>
-                    <a href="#proyectos" class="nav-link text-sm text-white">Proyectos</a>
-                    <a href="#clientes" class="nav-link text-sm text-white">Clientes</a>
-                    <a href="#testimonios" class="nav-link text-sm text-white">Testimonios</a>
-                    <a href="#blog" class="nav-link text-sm text-white">Blog</a>
-                    <a href="#contacto" class="nav-link text-sm text-white">Contacto</a>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#inicio">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20M%20C%20G%20para%20latinoamerica%20%28sin%20fondo%29-01-irneDS3Iz9RSZdKxd5XaSmJG4qzccM.png" alt="MCG Logo">
+                        <span>MCG Latinoamérica</span>
+                    </a>
                 </div>
-                <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
-                    <i class="fas fa-bars text-white text-xl"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-lg" id="mobile-menu">
-            <div class="container mx-auto px-4 py-3">
-                <div class="flex flex-col space-y-4">
-                    <a href="#inicio" class="mobile-nav-link">Inicio</a>
-                    <a href="#nosotros" class="mobile-nav-link">Nosotros</a>
-                    <a href="#servicios" class="mobile-nav-link">Servicios</a>
-                    <a href="#proyectos" class="mobile-nav-link">Proyectos</a>
-                    <a href="#clientes" class="mobile-nav-link">Clientes</a>
-                    <a href="#testimonios" class="mobile-nav-link">Testimonios</a>
-                    <a href="#blog" class="mobile-nav-link">Blog</a>
-                    <a href="#contacto" class="mobile-nav-link">Contacto</a>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                        <li><a href="#topografia" class="nav-link">Topografía</a></li>
+                        <li><a href="#clientes" class="nav-link">Clientes</a></li>
+                        <li><a href="#blog" class="nav-link">Blog</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="#inicio" class="mobile-nav-link">Inicio</a></li>
+            <li><a href="#nosotros" class="mobile-nav-link">Nosotros</a></li>
+            <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+            <li><a href="#proyectos" class="mobile-nav-link">Proyectos</a></li>
+            <li><a href="#topografia" class="mobile-nav-link">Topografía</a></li>
+            <li><a href="#clientes" class="mobile-nav-link">Clientes</a></li>
+            <li><a href="#blog" class="mobile-nav-link">Blog</a></li>
+            <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="../Mc_Latin/Herott.jpg" alt="">
+    <section id="inicio" class="hero-section">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-pattern"></div>
         </div>
-        <div class="container mx-auto px-4 z-20 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in hero-title">
-                Expertos en Consultoría Integral
-            </h1>
-            <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto animate-fade-in-delay hero-subtitle">
-                para el Desarrollo Territorial, Ambiental y Empresarial en Latinoamérica
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4 animate-fade-in-delay-2">
-                <a href="#contacto" class="btn-primary">
-                    <i class="fas fa-envelope mr-2"></i> Contáctanos
-                </a>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Desarrollo Territorial Sostenible</h1>
+                    <p class="hero-subtitle">Consultoría integral especializada en planificación territorial, gestión ambiental y desarrollo empresarial en Latinoamérica</p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn btn-primary">
+                            <span>Solicitar Consulta</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#servicios" class="btn btn-secondary">
+                            <span>Nuestros Servicios</span>
+                            <i class="fas fa-th-list"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="topography-model">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-IW08rxNtHBff5LysDuwgILcuf4tDIQ.png" alt="Modelo Topográfico" class="topo-img">
+                        <div class="topo-overlay"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <a href="#nosotros">
+                    <span class="mouse">
+                        <span class="wheel"></span>
+                    </span>
+                    <span class="scroll-text">Descubrir</span>
                 </a>
             </div>
-            <div class="mt-12 flex justify-center space-x-6 animate-fade-in-delay-3">
-                <a href="#" class="text-white hover:text-purple-300 transition-colors social-icon-hero" aria-label="Facebook">
-                    <i class="fab fa-facebook-f text-2xl"></i>
-                </a>
-                <a href="#" class="text-white hover:text-purple-300 transition-colors social-icon-hero" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in text-2xl"></i>
-                </a>
-                <a href="#" class="text-white hover:text-purple-300 transition-colors social-icon-hero" aria-label="Instagram">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="#" class="text-white hover:text-purple-300 transition-colors social-icon-hero" aria-label="Twitter">
-                    <i class="fab fa-twitter text-2xl"></i>
-                </a>
-            </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-            <a href="#nosotros" class="text-white scroll-down-btn" aria-label="Desplazarse hacia abajo">
-                <i class="fas fa-chevron-down text-3xl"></i>
-            </a>
-        </div>
-        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent z-10"></div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-12 bg-white relative">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
                     <div class="stat-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="150">0</span><span>+</span>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Proyectos Completados</div>
                     </div>
-                    <div class="stat-label">Proyectos Completados</div>
                 </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item">
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="50">0</span><span>+</span>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
                     </div>
-                    <div class="stat-label">Clientes Satisfechos</div>
                 </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
                     <div class="stat-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="10">0</span><span>+</span>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="10">0</div>
+                        <div class="stat-label">Años de Experiencia</div>
                     </div>
-                    <div class="stat-label">Años de Experiencia</div>
                 </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-item">
                     <div class="stat-icon">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
-                    <div class="stat-number">
-                        <span class="counter" data-target="15">0</span><span>+</span>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Regiones Atendidas</div>
                     </div>
-                    <div class="stat-label">Regiones Atendidas</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="nosotros" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="section-title">Nosotros</h2>
-                <div class="section-divider"></div>
+    <!-- About Section -->
+    <section id="nosotros" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <p class="section-subtitle">Conoce nuestra trayectoria y compromiso con el desarrollo sostenible</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right" data-aos-delay="100">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Quiénes Somos</h3>
-                    <p class="text-gray-600 mb-6">
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
                         Somos una empresa líder en consultoría integral especializada en desarrollo territorial, 
                         ambiental y empresarial. Con más de 10 años de experiencia, ofrecemos soluciones 
                         personalizadas que combinan conocimiento técnico, legal y administrativo para 
                         entidades públicas y privadas en toda Latinoamérica.
                     </p>
-                    <p class="text-gray-600 mb-6">
+                    <p class="about-description">
                         Nuestro equipo multidisciplinario de profesionales altamente calificados 
                         garantiza resultados excepcionales en cada proyecto, adaptándonos a las 
                         necesidades específicas de cada cliente.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                        <div class="about-card" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="about-card-icon">
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon">
                                 <i class="fas fa-bullseye"></i>
                             </div>
-                            <h4 class="font-bold text-gray-800 mb-2">Misión</h4>
-                            <p class="text-gray-600 text-sm">
-                                Brindar soluciones integrales que impulsen el desarrollo sostenible 
-                                de territorios y organizaciones.
-                            </p>
+                            <div class="value-content">
+                                <h3 class="value-title">Misión</h3>
+                                <p class="value-text">Brindar soluciones integrales que impulsen el desarrollo sostenible de territorios y organizaciones.</p>
+                            </div>
                         </div>
-                        <div class="about-card" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="about-card-icon">
+                        <div class="value-item">
+                            <div class="value-icon">
                                 <i class="fas fa-eye"></i>
                             </div>
-                            <h4 class="font-bold text-gray-800 mb-2">Visión</h4>
-                            <p class="text-gray-600 text-sm">
-                                Ser referentes en consultoría territorial y ambiental, 
-                                reconocidos por nuestra excelencia e innovación.
-                            </p>
+                            <div class="value-content">
+                                <h3 class="value-title">Visión</h3>
+                                <p class="value-text">Ser referentes en consultoría territorial y ambiental, reconocidos por nuestra excelencia e innovación.</p>
+                            </div>
                         </div>
-                        <div class="about-card" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="about-card-icon">
+                        <div class="value-item">
+                            <div class="value-icon">
                                 <i class="fas fa-heart"></i>
                             </div>
-                            <h4 class="font-bold text-gray-800 mb-2">Valores</h4>
-                            <p class="text-gray-600 text-sm">
-                                Integridad, excelencia, compromiso, innovación y responsabilidad social.
-                            </p>
+                            <div class="value-content">
+                                <h3 class="value-title">Valores</h3>
+                                <p class="value-text">Integridad, excelencia, compromiso, innovación y responsabilidad social.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-left" data-aos-delay="100">
-                    <div class="about-image-container">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600&q=80" alt="Equipo de trabajo" class="about-image">
-                        <div class="about-image-overlay">
-                            <div class="about-image-content">
-                                <h4 class="text-white text-xl font-bold">Nuestro Equipo</h4>
-                                <p class="text-purple-100">Profesionales comprometidos con la excelencia</p>
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600&q=80" alt="Equipo MCG">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h4>Nuestro Equipo</h4>
+                                <p>Profesionales comprometidos con la excelencia</p>
                             </div>
                         </div>
                     </div>
@@ -218,1048 +221,563 @@
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="py-20 bg-gray-50 relative">
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <div class="section-header">
                 <h2 class="section-title">Nuestros Servicios</h2>
-                <div class="section-divider"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-6">
-                    Ofrecemos una amplia gama de servicios especializados para satisfacer las necesidades 
-                    de entidades públicas y privadas en materia territorial, ambiental y empresarial.
-                </p>
+                <p class="section-subtitle">Soluciones especializadas para el desarrollo territorial y ambiental</p>
             </div>
-
-            <!-- Services Tabs -->
-            <div class="mb-12">
-                <div class="flex flex-wrap justify-center gap-4 mb-8 services-tabs-container" id="services-tabs" data-aos="fade-up">
-                    <button class="service-tab active" data-target="tab-territorio" aria-selected="true">
-                        <i class="fas fa-map-marked-alt mr-2"></i>Gestión Territorial
+            <div class="services-tabs">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="tab-territorio">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Gestión Territorial</span>
                     </button>
-                    <button class="service-tab" data-target="tab-servicios-publicos" aria-selected="false">
-                        <i class="fas fa-water mr-2"></i>Servicios Públicos
+                    <button class="tab-btn" data-tab="tab-ambiental">
+                        <i class="fas fa-leaf"></i>
+                        <span>Estudios Ambientales</span>
                     </button>
-                    <button class="service-tab" data-target="tab-ambiental" aria-selected="false">
-                        <i class="fas fa-leaf mr-2"></i>Estudios Ambientales
+                    <button class="tab-btn" data-tab="tab-topografia">
+                        <i class="fas fa-mountain"></i>
+                        <span>Topografía y SIG</span>
                     </button>
-                    <button class="service-tab" data-target="tab-juridicos" aria-selected="false">
-                        <i class="fas fa-balance-scale mr-2"></i>Servicios Jurídicos
+                    <button class="tab-btn" data-tab="tab-juridicos">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Servicios Jurídicos</span>
                     </button>
-                    <button class="service-tab" data-target="tab-ingenieria" aria-selected="false">
-                        <i class="fas fa-hard-hat mr-2"></i>Ingeniería
+                    <button class="tab-btn" data-tab="tab-ingenieria">
+                        <i class="fas fa-hard-hat"></i>
+                        <span>Ingeniería</span>
                     </button>
-                    <button class="service-tab" data-target="tab-tecnologia" aria-selected="false">
-                        <i class="fas fa-laptop-code mr-2"></i>Tecnología
+                    <button class="tab-btn" data-tab="tab-tecnologia">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Tecnología</span>
                     </button>
                 </div>
-
-                <!-- Tab Content -->
-                <div class="service-tab-content active" id="tab-territorio" role="tabpanel" aria-labelledby="tab-territorio">
-                    <div class="service-content-card" data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="md:w-1/3">
-                                <div class="service-image-container">
-                                    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                                         alt="Gestión Territorial" 
-                                         class="service-image">
-                                </div>
+                <div class="tabs-content">
+                    <div class="tab-panel active" id="tab-territorio">
+                        <div class="tab-content">
+                            <div class="tab-image">
+                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DJI_0016.jpg-snvMUH4dccyMRSc7bZulB70fHoEiP7.jpeg" alt="Gestión Territorial">
                             </div>
-                            <div class="md:w-2/3">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Gestión Territorio / Ordenamiento Territorial</h3>
-                                <p class="text-gray-600 mb-6">
+                            <div class="tab-info">
+                                <h3 class="tab-title">Gestión Territorial</h3>
+                                <p class="tab-description">
                                     Ofrecemos servicios especializados en planificación y ordenamiento territorial para municipios y entidades privadas.
                                 </p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <ul class="space-y-2">
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Planes de Desarrollo</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Planes, Planes Básicos, Esquemas de Ordenamiento Territorial</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Expedientes Municipales</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Planes Parciales</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Estudios de estratificación socioeconómica</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Saneamiento y Titulación de Predios Baldíos</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Estudios de Plusvalía</span>
-                                        </li>
-                                    </ul>
-                                    <ul class="space-y-2">
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Diseños urbanísticos y arquitectónicos</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Diseños de Redes de Acueducto e Hidrosanitarias</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Estudio de Suelos</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Planes de Manejo Vial y Diseños de Vías</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Cartografía y Sistemas de Información Geográficos</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Diagnósticos catastrales y jurídicos de predios</span>
-                                        </li>
-                                        <li class="service-list-item">
-                                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                            <span>Trámite para licencias de urbanismo y construcción</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <ul class="tab-list">
+                                    <li><i class="fas fa-check-circle"></i> Planes de Desarrollo</li>
+                                    <li><i class="fas fa-check-circle"></i> Planes, Planes Básicos, Esquemas de Ordenamiento Territorial</li>
+                                    <li><i class="fas fa-check-circle"></i> Expedientes Municipales</li>
+                                    <li><i class="fas fa-check-circle"></i> Planes Parciales</li>
+                                    <li><i class="fas fa-check-circle"></i> Estudios de estratificación socioeconómica</li>
+                                    <li><i class="fas fa-check-circle"></i> Saneamiento y Titulación de Predios Baldíos</li>
+                                    <li><i class="fas fa-check-circle"></i> Estudios de Plusvalía</li>
+                                    <li><i class="fas fa-check-circle"></i> Diseños urbanísticos y arquitectónicos</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="service-tab-content" id="tab-servicios-publicos" role="tabpanel" aria-labelledby="tab-servicios-publicos">
-                    <div class="service-content-card" data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="md:w-1/3">
-                                <div class="service-image-container">
-                                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                                         alt="Servicios Públicos" 
-                                         class="service-image">
-                                </div>
+                    <div class="tab-panel" id="tab-ambiental">
+                        <div class="tab-content">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Estudios Ambientales">
                             </div>
-                            <div class="md:w-2/3">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Servicios Públicos</h3>
-                                <p class="text-gray-600 mb-6">
-                                    Brindamos asesoría especializada en la gestión de servicios públicos y cumplimiento normativo.
+                            <div class="tab-info">
+                                <h3 class="tab-title">Estudios Ambientales</h3>
+                                <p class="tab-description">
+                                    Desarrollamos estudios y proyectos ambientales con enfoque en la sostenibilidad y recuperación de recursos naturales.
                                 </p>
-                                <ul class="space-y-4">
-                                    <li class="service-list-item">
-                                        <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                        <span>Reporte de información a la superintendencia de servicios públicos a través del Sistema único de información - SUI</span>
-                                    </li>
-                                    <li class="service-list-item">
-                                        <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                        <span>Programa gestión integral de residuos sólidos – PGIRS</span>
-                                    </li>
-                                    <li class="service-list-item">
-                                        <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                        <span>Plan Uso Eficiente y Ahorro del Agua – PUEAA</span>
-                                    </li>
-                                    <li class="service-list-item">
-                                        <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                        <span>Plan Saneamiento y Manejo de Vertimientos – PSMV</span>
-                                    </li>
-                                    <li class="service-list-item">
-                                        <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                        <span>Asesoría especializada en el manejo y reporte de información (SUI) para la certificación del manejo de los recursos de Agua Potable y Saneamiento Básico</span>
-                                    </li>
+                                <ul class="tab-list">
+                                    <li><i class="fas fa-check-circle"></i> Elaboración y asesorías en Planes de Manejo Ambiental</li>
+                                    <li><i class="fas fa-check-circle"></i> Agendas ambientales</li>
+                                    <li><i class="fas fa-check-circle"></i> Planes de gestión de riesgo de vertimiento</li>
+                                    <li><i class="fas fa-check-circle"></i> Formulación de Planes de Gestión de Riesgo</li>
+                                    <li><i class="fas fa-check-circle"></i> Estudios de soporte ambiental</li>
+                                    <li><i class="fas fa-check-circle"></i> Evaluación integral de áreas y zonificación ambiental</li>
+                                    <li><i class="fas fa-check-circle"></i> Trámite para licencias ambientales</li>
+                                    <li><i class="fas fa-check-circle"></i> Reforestación de microcuencas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="tab-topografia">
+                        <div class="tab-content">
+                            <div class="tab-image">
+                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DJI_0448.JPG-OpkbVKIVCpbS0SxcnhP0ev46PpSTho.jpeg" alt="Topografía y SIG">
+                            </div>
+                            <div class="tab-info">
+                                <h3 class="tab-title">Topografía y SIG</h3>
+                                <p class="tab-description">
+                                    Utilizamos tecnología de punta para levantamientos topográficos, fotogrametría y sistemas de información geográfica.
+                                </p>
+                                <ul class="tab-list">
+                                    <li><i class="fas fa-check-circle"></i> Levantamientos topográficos con drones</li>
+                                    <li><i class="fas fa-check-circle"></i> Fotogrametría y ortofotografía</li>
+                                    <li><i class="fas fa-check-circle"></i> Modelado 3D de terrenos</li>
+                                    <li><i class="fas fa-check-circle"></i> Sistemas de Información Geográfica (SIG)</li>
+                                    <li><i class="fas fa-check-circle"></i> Cartografía digital</li>
+                                    <li><i class="fas fa-check-circle"></i> Análisis LiDAR</li>
+                                    <li><i class="fas fa-check-circle"></i> Estudios de suelos</li>
+                                    <li><i class="fas fa-check-circle"></i> Delimitación y georreferenciación de predios</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="tab-juridicos">
+                        <div class="tab-content">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Servicios Jurídicos">
+                            </div>
+                            <div class="tab-info">
+                                <h3 class="tab-title">Servicios Jurídicos</h3>
+                                <p class="tab-description">
+                                    Contamos con un equipo de abogados especializados en diferentes áreas del derecho para brindar asesoría integral.
+                                </p>
+                                <ul class="tab-list">
+                                    <li><i class="fas fa-check-circle"></i> Derecho de tierras rural</li>
+                                    <li><i class="fas fa-check-circle"></i> Acceso de Tierras y adjudicación de Baldíos</li>
+                                    <li><i class="fas fa-check-circle"></i> Derecho ambiental</li>
+                                    <li><i class="fas fa-check-circle"></i> Ordenamiento territorial</li>
+                                    <li><i class="fas fa-check-circle"></i> Responsabilidad ambiental</li>
+                                    <li><i class="fas fa-check-circle"></i> Derecho comercial</li>
+                                    <li><i class="fas fa-check-circle"></i> Derecho laboral</li>
+                                    <li><i class="fas fa-check-circle"></i> Derecho civil</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="tab-ingenieria">
+                        <div class="tab-content">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Ingeniería">
+                            </div>
+                            <div class="tab-info">
+                                <h3 class="tab-title">Ingeniería Civil y Arquitectura</h3>
+                                <p class="tab-description">
+                                    Desarrollamos proyectos de infraestructura y obras públicas con los más altos estándares de calidad.
+                                </p>
+                                <ul class="tab-list">
+                                    <li><i class="fas fa-check-circle"></i> Proyectos de reforestación y reciclaje</li>
+                                    <li><i class="fas fa-check-circle"></i> Construcción de distritos de riego</li>
+                                    <li><i class="fas fa-check-circle"></i> Construcción de megaproyectos y zonas francas</li>
+                                    <li><i class="fas fa-check-circle"></i> Redes eléctricas y alumbrado público</li>
+                                    <li><i class="fas fa-check-circle"></i> Edificaciones (preliminares, cimentaciones, estructuras)</li>
+                                    <li><i class="fas fa-check-circle"></i> Estabilización de taludes</li>
+                                    <li><i class="fas fa-check-circle"></i> Agua potable y saneamiento básico</li>
+                                    <li><i class="fas fa-check-circle"></i> Vías (diagnóstico, mejoramiento, construcción)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="tab-tecnologia">
+                        <div class="tab-content">
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Tecnología">
+                            </div>
+                            <div class="tab-info">
+                                <h3 class="tab-title">Tecnología y Educación</h3>
+                                <p class="tab-description">
+                                    Implementamos soluciones tecnológicas y programas educativos para el desarrollo de capacidades.
+                                </p>
+                                <ul class="tab-list">
+                                    <li><i class="fas fa-check-circle"></i> Soluciones generadas por drones</li>
+                                    <li><i class="fas fa-check-circle"></i> Centros especializados móviles de robótica</li>
+                                    <li><i class="fas fa-check-circle"></i> Venta de suministros y equipos tecnológicos</li>
+                                    <li><i class="fas fa-check-circle"></i> Mantenimiento y reparación</li>
+                                    <li><i class="fas fa-check-circle"></i> Programas educativos técnicos para funcionarios públicos</li>
+                                    <li><i class="fas fa-check-circle"></i> Desarrollo tecnológico e implementación de software</li>
+                                    <li><i class="fas fa-check-circle"></i> Gobierno en línea</li>
+                                    <li><i class="fas fa-check-circle"></i> Formación y capacitación en uso y apropiación TIC</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="service-tab-content" id="tab-ambiental" role="tabpanel" aria-labelledby="tab-ambiental">
-                    <div class="service-content-card" data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="md:w-1/3">
-                                <div class="service-image-container">
-                                    <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                                         alt="Estudios Ambientales" 
-                                         class="service-image">
-                                </div>
-                            </div>
-                            <div class="md:w-2/3">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Estudios Ambientales y Recuperación Hídrica</h3>
-                                <p class="text-gray-600 mb-6">
-                                    Desarrollamos estudios y proyectos ambientales con enfoque en la sostenibilidad y recuperación de recursos naturales.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800 mb-2">Estudios Ambientales</h4>
-                                        <ul class="space-y-2">
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Elaboración y asesorías en Planes de Manejo Ambiental</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Agendas ambientales</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Planes de gestión de riesgo de vertimiento</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Formulación de Planes de Gestión de Riesgo</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Estudios de soporte ambiental</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Evaluación integral de áreas y zonificación ambiental</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Trámite para licencias ambientales</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-gray-800 mb-2">Recuperación Fuentes Hídricas</h4>
-                                        <ul class="space-y-2">
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Reforestación microcuencas</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Recuperación zonas degradadas</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Campañas de limpieza de fuentes hídricas</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>PRAES, PROCEDAS, Programas de formación ambiental</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Reforestaciones</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-tab-content" id="tab-juridicos" role="tabpanel" aria-labelledby="tab-juridicos">
-                    <div class="service-content-card" data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="md:w-1/3">
-                                <div class="service-image-container">
-                                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                                         alt="Servicios Jurídicos" 
-                                         class="service-image">
-                                </div>
-                                <div class="mt-6 space-y-4">
-                                    <h4 class="font-bold text-gray-800">Servicios Adicionales</h4>
-                                    <div class="service-additional-card">
-                                        <h5 class="font-semibold text-purple-800 mb-2">Abogado Permanente</h5>
-                                        <p class="text-sm text-gray-600">Representación como defensor o actor en todos los asuntos, litigios y conciliaciones.</p>
-                                    </div>
-                                    <div class="service-additional-card">
-                                        <h5 class="font-semibold text-purple-800 mb-2">Capacitación</h5>
-                                        <p class="text-sm text-gray-600">Capacitación a administradores, directores y ejecutivos sobre aspectos legales.</p>
-                                    </div>
-                                    <div class="service-additional-card">
-                                        <h5 class="font-semibold text-purple-800 mb-2">Vigilancia Judicial</h5>
-                                        <p class="text-sm text-gray-600">Seguimiento sobre los procesos vigentes.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="md:w-2/3">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Servicios Jurídicos</h3>
-                                <p class="text-gray-600 mb-6">
-                                    Contamos con un equipo de abogados especializados en diferentes áreas del derecho para brindar asesoría integral.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <div class="service-specialty-card">
-                                        <h4 class="font-bold text-purple-800 mb-2">Derecho de Tierras</h4>
-                                        <ul class="text-sm space-y-1">
-                                            <li>Derecho de tierras rural</li>
-                                            <li>Acceso de Tierras y adjudicación de Baldíos</li>
-                                            <li>Recuperación indebida</li>
-                                            <li>Planes de Ordenamiento Social</li>
-                                            <li>Formalización de propiedad</li>
-                                            <li>Restitución de Tierras</li>
-                                            <li>Sucesiones</li>
-                                        </ul>
-                                    </div>
-                                    <div class="service-specialty-card">
-                                        <h4 class="font-bold text-purple-800 mb-2">Derecho Ambiental</h4>
-                                        <ul class="text-sm space-y-1">
-                                            <li>Derecho ambiental internacional</li>
-                                            <li>Ordenamiento territorial</li>
-                                            <li>Sistema nacional ambiental</li>
-                                            <li>Responsabilidad ambiental</li>
-                                            <li>Mercados verdes</li>
-                                            <li>Procesos sancionatorios</li>
-                                            <li>Normatividad sectorial</li>
-                                        </ul>
-                                    </div>
-                                    <div class="service-specialty-card">
-                                        <h4 class="font-bold text-purple-800 mb-2">Derecho Comercial</h4>
-                                        <ul class="text-sm space-y-1">
-                                            <li>Derecho comercial societario</li>
-                                            <li>Derecho comercial contractual</li>
-                                            <li>Títulos valores</li>
-                                            <li>Actos y operaciones mercantiles</li>
-                                            <li>Reformas, transformación, fusión</li>
-                                            <li>Disolución y liquidación</li>
-                                            <li>Propiedad industrial</li>
-                                        </ul>
-                                    </div>
-                                    <div class="service-specialty-card">
-                                        <h4 class="font-bold text-purple-800 mb-2">Derecho Laboral</h4>
-                                        <ul class="text-sm space-y-1">
-                                            <li>Derecho sustantivo del trabajo</li>
-                                            <li>Derecho contractual laboral</li>
-                                            <li>Derecho colectivo del trabajo</li>
-                                            <li>Reglamentos de trabajo e higiene</li>
-                                            <li>Convenciones y pactos colectivos</li>
-                                            <li>Procedimiento ordinario laboral</li>
-                                            <li>Arbitramentos</li>
-                                        </ul>
-                                    </div>
-                                    <div class="service-specialty-card">
-                                        <h4 class="font-bold text-purple-800 mb-2">Derecho Civil</h4>
-                                        <ul class="text-sm space-y-1">
-                                            <li>Procedimiento General Civil</li>
-                                            <li>Actos procesales</li>
-                                            <li>Nulidades sustanciales y procesales</li>
-                                            <li>Medios de impugnación y consulta</li>
-                                            <li>Mecanismos alternativos</li>
-                                            <li>Personas, bienes y contratos</li>
-                                            <li>Sucesiones ilíquidas</li>
-                                        </ul>
-                                    </div>
-                                    <div class="service-specialty-card">
-                                        <h4 class="font-bold text-purple-800 mb-2">Otros Servicios</h4>
-                                        <ul class="text-sm space-y-1">
-                                            <li>Derecho Administrativo</li>
-                                            <li>Derecho Constitucional</li>
-                                            <li>Derecho Penal</li>
-                                            <li>Derecho Electoral</li>
-                                            <li>Consulta vía Skype, email</li>
-                                            <li>Abogado asignado en sede</li>
-                                            <li>Trámites legales empresariales</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-tab-content" id="tab-ingenieria" role="tabpanel" aria-labelledby="tab-ingenieria">
-                    <div class="service-content-card" data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="md:w-1/3">
-                                <div class="service-image-container">
-                                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                                         alt="Ingeniería e Infraestructura" 
-                                         class="service-image">
-                                </div>
-                                <div class="grid grid-cols-2 gap-4 mt-6">
-                                    <div class="service-image-small-container">
-                                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=200&q=80" 
-                                             alt="Proyecto de Infraestructura 1" 
-                                             class="service-image-small">
-                                    </div>
-                                    <div class="service-image-small-container">
-                                        <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=200&q=80" 
-                                             alt="Proyecto de Infraestructura 2" 
-                                             class="service-image-small">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="md:w-2/3">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Ingeniería Civil, Arquitectura e Infraestructura</h3>
-                                <p class="text-gray-600 mb-6">
-                                    Desarrollamos proyectos de infraestructura y obras públicas con los más altos estándares de calidad.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800 mb-3">Proyectos y Obras</h4>
-                                        <ul class="space-y-2">
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Proyectos de reforestación y reciclaje</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Levantamiento Topográfico y fotogrametría</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Sobrevuelos con Drone</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Construcción de distritos de riego</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Construcción de megaproyectos y zonas francas</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Redes eléctricas y alumbrado público</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Electrificación rural y urbana</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-gray-800 mb-3">Especialidades</h4>
-                                        <ul class="space-y-2">
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Edificaciones (preliminares, cimentaciones, estructuras)</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Estabilización de taludes</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Agua potable y saneamiento básico</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Vías (diagnóstico, mejoramiento, construcción)</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Interventoría y consultoría de proyectos</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Contabilización de árboles</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Elaboración del plan de ornato</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-tab-content" id="tab-tecnologia" role="tabpanel" aria-labelledby="tab-tecnologia">
-                    <div class="service-content-card" data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row gap-8">
-                            <div class="md:w-1/3">
-                                <div class="service-image-container">
-                                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                                         alt="Tecnología y Educación" 
-                                         class="service-image">
-                                </div>
-                            </div>
-                            <div class="md:w-2/3">
-                                <h3 class="text-2xl font-bold text-gray-800 mb-4">Tecnología y Educación</h3>
-                                <p class="text-gray-600 mb-6">
-                                    Implementamos soluciones tecnológicas y programas educativos para el desarrollo de capacidades.
-                                </p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800 mb-3">Tecnología</h4>
-                                        <ul class="space-y-2">
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Soluciones generadas por drones</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Centros especializados móviles de robótica</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Venta de suministros y equipos tecnológicos</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Mantenimiento y reparación</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Soporte técnico</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Redes de voz y datos</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Seguridad web, servidores y firewall</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-gray-800 mb-3">Educación</h4>
-                                        <ul class="space-y-2">
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Programas educativos técnicos para funcionarios públicos</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Desarrollo tecnológico e implementación de software</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Gobierno en línea</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Acciones de apropiación social de la ciencia y tecnología</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Formación y capacitación en uso y apropiación TIC</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Servicios de capacitación en sistema general de regalías</span>
-                                            </li>
-                                            <li class="service-list-item">
-                                                <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
-                                                <span>Capacitación en sistemas integrados de gestión</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="#contacto" class="btn-primary inline-block">
-                    Solicitar información sobre nuestros servicios
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="proyectos" class="py-20 bg-white relative">
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-50 to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
+    <section id="proyectos" class="projects-section">
+        <div class="container">
+            <div class="section-header">
                 <h2 class="section-title">Proyectos Destacados</h2>
-                <div class="section-divider"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-6">
-                    Conoce algunos de nuestros casos de éxito y proyectos ejecutados 
-                    que demuestran nuestra experiencia y capacidad.
-                </p>
+                <p class="section-subtitle">Conoce algunos de nuestros casos de éxito más relevantes</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="projects-grid">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                             alt="Plan Parcial Caminos de San Felipe" 
-                             class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Plan Parcial Caminos de San Felipe">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="Ver detalles del proyecto">
-                                <i class="fas fa-eye"></i>
-                            </a>
+                            <div class="project-category">Ordenamiento Territorial</div>
+                            <a href="#" class="project-link"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Plan Parcial Caminos de San Felipe</h3>
-                        <p class="text-gray-600 mb-4">
-                            Formulación del Plan Parcial Caminos de San Felipe en el Municipio de Granada Meta.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
+                    <div class="project-content">
+                        <h3 class="project-title">Plan Parcial Caminos de San Felipe</h3>
+                        <p class="project-description">Formulación del Plan Parcial Caminos de San Felipe en el Municipio de Granada Meta.</p>
+                        <div class="project-tags">
                             <span class="project-tag">Ordenamiento Territorial</span>
                             <span class="project-tag">Urbanismo</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                             alt="Recuperación de Fuentes Hídricas" 
-                             class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Recuperación de Fuentes Hídricas">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="Ver detalles del proyecto">
-                                <i class="fas fa-eye"></i>
-                            </a>
+                            <div class="project-category">Ambiental</div>
+                            <a href="#" class="project-link"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Recuperación de Fuentes Hídricas</h3>
-                        <p class="text-gray-600 mb-4">
-                            Proyecto integral de recuperación y conservación de cuencas 
-                            hidrográficas en la región.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
+                    <div class="project-content">
+                        <h3 class="project-title">Recuperación de Fuentes Hídricas</h3>
+                        <p class="project-description">Proyecto integral de recuperación y conservación de cuencas hidrográficas en la región.</p>
+                        <div class="project-tags">
                             <span class="project-tag">Ambiental</span>
                             <span class="project-tag">Recursos Hídricos</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
-                             alt="Condominio Campestre" 
-                             class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Condominio Campestre">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="Ver detalles del proyecto">
-                                <i class="fas fa-eye"></i>
-                            </a>
+                            <div class="project-category">Arquitectura</div>
+                            <a href="#" class="project-link"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Condominio Campestre Santa Ana</h3>
-                        <p class="text-gray-600 mb-4">
-                            Desarrollo urbanístico y arquitectónico para proyecto residencial campestre.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
+                    <div class="project-content">
+                        <h3 class="project-title">Condominio Campestre Santa Ana</h3>
+                        <p class="project-description">Desarrollo urbanístico y arquitectónico para proyecto residencial campestre.</p>
+                        <div class="project-tags">
                             <span class="project-tag">Arquitectura</span>
                             <span class="project-tag">Diseño Urbanístico</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="#" class="btn-primary inline-block">
-                    Ver todos los proyectos
+            <div class="projects-cta">
+                <a href="#" class="btn btn-outline">
+                    <span>Ver todos los proyectos</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonios" class="py-20 bg-gray-50 relative">
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="section-title">Testimonios</h2>
-                <div class="section-divider"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-6">
-                    Lo que nuestros clientes dicen sobre nuestros servicios y experiencia de trabajo.
-                </p>
+    <!-- Topography Section -->
+    <section id="topografia" class="topography-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Topografía y Cartografía</h2>
+                <p class="section-subtitle">Tecnología de punta para levantamientos topográficos y análisis territorial</p>
             </div>
-
-            <div class="testimonials-slider" id="testimonials-slider" data-aos="fade-up">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
+            <div class="topography-content">
+                <div class="topography-text">
+                    <p class="topography-description">
+                        En MCG utilizamos tecnología avanzada para realizar levantamientos topográficos de alta precisión, 
+                        incluyendo drones, sistemas LiDAR y software especializado para procesamiento de datos geoespaciales.
+                    </p>
+                    <div class="topography-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-drone"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Fotogrametría con Drones</h3>
+                                <p class="feature-text">Captura de imágenes aéreas de alta resolución para generación de ortomosaicos y modelos digitales de elevación.</p>
+                            </div>
                         </div>
-                        <p class="testimonial-text">
-                            MCG ha sido un aliado estratégico fundamental para nuestro municipio. Su equipo de profesionales nos ha brindado asesoría de alta calidad en temas de ordenamiento territorial y gestión ambiental, permitiéndonos implementar proyectos sostenibles con excelentes resultados.
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Juan Pérez" class="testimonial-author-image">
-                            <div class="testimonial-author-info">
-                                <h4 class="testimonial-author-name">Juan Pérez</h4>
-                                <p class="testimonial-author-title">Alcalde de Granada, Meta</p>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Análisis LiDAR</h3>
+                                <p class="feature-text">Procesamiento de nubes de puntos para modelado 3D preciso del terreno y clasificación de elementos.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Sistemas de Información Geográfica</h3>
+                                <p class="feature-text">Integración y análisis de datos espaciales para toma de decisiones en planificación territorial.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
+                <div class="topography-gallery">
+                    <div class="gallery-grid">
+                        <div class="gallery-item large">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DJI_0016.jpg-snvMUH4dccyMRSc7bZulB70fHoEiP7.jpeg" alt="Vista aérea de territorio">
+                            <div class="gallery-caption">Vista aérea de zona rural-urbana</div>
                         </div>
-                        <p class="testimonial-text">
-                            Trabajar con MCG ha sido una experiencia excepcional. Su conocimiento en temas jurídicos y ambientales nos permitió resolver complejos desafíos legales en nuestro proyecto de desarrollo inmobiliario. Recomendamos ampliamente sus servicios.
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María Rodríguez" class="testimonial-author-image">
-                            <div class="testimonial-author-info">
-                                <h4 class="testimonial-author-name">María Rodríguez</h4>
-                                <p class="testimonial-author-title">Gerente de Constructora Bogotá</p>
-                            </div>
+                        <div class="gallery-item">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DJI_0448.JPG-OpkbVKIVCpbS0SxcnhP0ev46PpSTho.jpeg" alt="Levantamiento urbano">
+                            <div class="gallery-caption">Levantamiento urbano</div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
+                        <div class="gallery-item">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DJI_0460.JPG-mWg3kl3d4bDibrijOLwVYssg3Z1I4Z.jpeg" alt="Análisis territorial">
+                            <div class="gallery-caption">Análisis territorial</div>
                         </div>
-                        <p class="testimonial-text">
-                            La asesoría técnica de MCG en nuestro proyecto de recuperación de fuentes hídricas fue impecable. Su equipo demostró un profundo conocimiento y compromiso con la sostenibilidad ambiental, logrando resultados que superaron nuestras expectativas.
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Carlos Gómez" class="testimonial-author-image">
-                            <div class="testimonial-author-info">
-                                <h4 class="testimonial-author-name">Carlos Gómez</h4>
-                                <p class="testimonial-author-title">Director Ambiental, Puerto López</p>
-                            </div>
+                        <div class="gallery-item">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DJI_0456.JPG-cB3nkTHpxmbJgIyz36oyiTlPgdzIyx.jpeg" alt="Contraste urbano-rural">
+                            <div class="gallery-caption">Contraste urbano-rural</div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="testimonial-controls">
-                <button id="testimonial-prev" class="testimonial-control-btn" aria-label="Testimonio anterior">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button id="testimonial-next" class="testimonial-control-btn" aria-label="Testimonio siguiente">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            <div class="topography-models">
+                <h3 class="models-title">Modelos Digitales de Terreno</h3>
+                <div class="models-grid">
+                    <div class="model-item">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-IW08rxNtHBff5LysDuwgILcuf4tDIQ.png" alt="Modelo topográfico 1">
+                        <div class="model-caption">Perfil de vegetación LiDAR</div>
+                    </div>
+                    <div class="model-item">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-W9awE2U7EW2p88O3FZbK8hZAEibm8b.png" alt="Modelo topográfico 2">
+                        <div class="model-caption">Análisis de cobertura vegetal</div>
+                    </div>
+                    <div class="model-item">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-2ffg4OhKo1fGRutslaFcnV1kyXVOuX.png" alt="Modelo topográfico 3">
+                        <div class="model-caption">Modelo urbano 3D</div>
+                    </div>
+                    <div class="model-item">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-jdHEHHFfvz7ozPfRupVRI8QMb4AJCd.png" alt="Modelo topográfico 4">
+                        <div class="model-caption">Clasificación de terreno</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section id="clientes" class="py-20 bg-white relative">
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-50 to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
+    <section id="clientes" class="clients-section">
+        <div class="container">
+            <div class="section-header">
                 <h2 class="section-title">Nuestros Clientes</h2>
-                <div class="section-divider"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-6">
-                    Hemos trabajado con entidades públicas y privadas, brindando soluciones efectivas a sus necesidades.
-                </p>
+                <p class="section-subtitle">Entidades que han confiado en nuestra experiencia y profesionalismo</p>
             </div>
-
-            <div class="mb-12">
-                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center" data-aos="fade-up">Municipios</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="0">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de Granada</h4>
-                        </div>
+            <div class="clients-content">
+                <div class="clients-categories">
+                    <div class="category-item active" data-category="municipios">
+                        <i class="fas fa-city"></i>
+                        <span>Municipios</span>
                     </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="50">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de Cabuyaro</h4>
-                        </div>
+                    <div class="category-item" data-category="empresas">
+                        <i class="fas fa-building"></i>
+                        <span>Empresas</span>
                     </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de San Juanito</h4>
+                </div>
+                <div class="clients-list active" id="municipios">
+                    <div class="clients-grid">
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de Granada</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="150">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de Lejanías</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de Cabuyaro</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de Puerto López</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de San Juanito</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="250">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de Puerto Gaitán</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de Lejanías</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de San Juan de Arama</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de Puerto López</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="350">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-city text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Municipio de Puerto Rico</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de Puerto Gaitán</h3>
+                        </div>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de San Juan de Arama</h3>
+                        </div>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <h3 class="client-name">Municipio de Puerto Rico</h3>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div>
-                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center" data-aos="fade-up">Empresas</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="0">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-building text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Constructora Bogotá Arquitectura y Diseños S.A.S.</h4>
+                <div class="clients-list" id="empresas">
+                    <div class="clients-grid">
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="client-name">Constructora Bogotá Arquitectura y Diseños S.A.S.</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="50">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-building text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">CANAPRO</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="client-name">CANAPRO</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-building text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">García Constructores S.A.S</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="client-name">García Constructores S.A.S</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="150">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-building text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Condominio Mi Finca en el Llano</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="client-name">Condominio Mi Finca en el Llano</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-building text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">Condominio Sol del Llano</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="client-name">Condominio Sol del Llano</h3>
                         </div>
-                    </div>
-                    <div class="client-card" data-aos="zoom-in" data-aos-delay="250">
-                        <div class="p-6 text-center">
-                            <i class="fas fa-building text-4xl text-purple-600 mb-4"></i>
-                            <h4 class="font-bold">ENERTEC S.A.S.</h4>
+                        <div class="client-item">
+                            <div class="client-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="client-name">ENERTEC S.A.S.</h3>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 bg-gray-50 relative">
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="section-title">Blog y Noticias</h2>
-                <div class="section-divider"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-6">
-                    Mantente actualizado con las últimas noticias, normativas y consejos 
-                    técnicos en nuestro blog especializado.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" 
-                             alt="Normativas Ambientales" 
-                             class="w-full h-full object-cover">
-                        <div class="blog-date">
-                            <span class="day">15</span>
-                            <span class="month">Abr</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Nuevas Normativas Ambientales 2023</h3>
-                        <p class="text-gray-600 mb-4">
-                            Análisis de las recientes actualizaciones en la normativa ambiental 
-                            y su impacto en proyectos territoriales.
-                        </p>
-                        <a href="#" class="blog-link">
-                            Leer más <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 2 -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" 
-                             alt="Reportes SUI" 
-                             class="w-full h-full object-cover">
-                        <div class="blog-date">
-                            <span class="day">28</span>
-                            <span class="month">Mar</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Guía Completa para Reportes SUI</h3>
-                        <p class="text-gray-600 mb-4">
-                            Todo lo que necesitas saber para cumplir correctamente con los 
-                            reportes al Sistema Único de Información.
-                        </p>
-                        <a href="#" class="blog-link">
-                            Leer más <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 3 -->
-                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" 
-                             alt="Tecnología Territorial" 
-                             class="w-full h-full object-cover">
-                        <div class="blog-date">
-                            <span class="day">10</span>
-                            <span class="month">Mar</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Tecnologías Emergentes en Gestión Territorial</h3>
-                        <p class="text-gray-600 mb-4">
-                            Descubre cómo los drones y la robótica están revolucionando 
-                            la planificación y gestión territorial.
-                        </p>
-                        <a href="#" class="blog-link">
-                            Leer más <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="#" class="btn-primary inline-block">
-                    Ver todas las publicaciones
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="py-20 bg-white relative">
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-50 to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-header">
                 <h2 class="section-title">Contáctanos</h2>
-                <div class="section-divider"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-6">
-                    Estamos listos para ayudarte. Contáctanos para obtener más información 
-                    sobre nuestros servicios o para solicitar una consulta personalizada.
-                </p>
+                <p class="section-subtitle">Estamos listos para ayudarte con tu próximo proyecto</p>
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div data-aos="fade-right">
+            <div class="contact-content">
+                <div class="contact-form-container">
                     <form id="contact-form" class="contact-form">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
-                                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required aria-required="true">
+                                <label for="name">Nombre Completo</label>
+                                <input type="text" id="name" name="name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required aria-required="true">
+                                <label for="email">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Servicio de Interés</label>
+                                <select id="service" name="service">
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="territorial">Gestión Territorial</option>
+                                    <option value="ambiental">Estudios Ambientales</option>
+                                    <option value="topografia">Topografía y SIG</option>
+                                    <option value="juridicos">Servicios Jurídicos</option>
+                                    <option value="ingenieria">Ingeniería</option>
+                                    <option value="tecnologia">Tecnología</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="Tu número de teléfono">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Servicio de Interés</label>
-                            <select id="service" name="service" class="form-input">
-                                <option value="">Selecciona un servicio</option>
-                                <option value="territorial">Gestión Territorial</option>
-                                <option value="servicios-publicos">Servicios Públicos</option>
-                                <option value="ambiental">Estudios Ambientales</option>
-                                <option value="juridicos">Servicios Jurídicos</option>
-                                <option value="ingenieria">Ingeniería e Infraestructura</option>
-                                <option value="tecnologia">Tecnología y Educación</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                            <textarea id="message" name="message" rows="5" class="form-textarea" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn-primary w-full">
-                                <i class="fas fa-paper-plane mr-2"></i> Enviar Mensaje
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">
+                                <span>Enviar Mensaje</span>
+                                <i class="fas fa-paper-plane"></i>
                             </button>
                         </div>
                     </form>
                 </div>
-
-                <div data-aos="fade-left">
-                    <div class="contact-info-card">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="contact-info-item">
-                                <div class="contact-icon">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-header">
+                            <h3>Información de Contacto</h3>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-item">
+                                <div class="info-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Dirección</h4>
-                                    <p class="text-gray-600">Calle Principal #123, Villavicencio, Meta, Colombia</p>
+                                <div class="info-text">
+                                    <h4>Dirección</h4>
+                                    <p>Calle Principal #123, Villavicencio, Meta, Colombia</p>
                                 </div>
                             </div>
-                            
-                            <div class="contact-info-item">
-                                <div class="contact-icon">
+                            <div class="info-item">
+                                <div class="info-icon">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Teléfono</h4>
-                                    <p class="text-gray-600">+57 (8) 123 4567</p>
-                                    <p class="text-gray-600">+57 300 123 4567 (WhatsApp)</p>
+                                <div class="info-text">
+                                    <h4>Teléfono</h4>
+                                    <p>+57 (8) 123 4567</p>
+                                    <p>+57 300 123 4567 (WhatsApp)</p>
                                 </div>
                             </div>
-                            
-                            <div class="contact-info-item">
-                                <div class="contact-icon">
+                            <div class="info-item">
+                                <div class="info-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Correo Electrónico</h4>
-                                    <p class="text-gray-600">info@mcglatam.com</p>
-                                    <p class="text-gray-600">contacto@mcglatam.com</p>
+                                <div class="info-text">
+                                    <h4>Correo Electrónico</h4>
+                                    <p>info@mcglatam.com</p>
+                                    <p>contacto@mcglatam.com</p>
                                 </div>
                             </div>
-                            
-                            <div class="contact-info-item">
-                                <div class="contact-icon">
+                            <div class="info-item">
+                                <div class="info-icon">
                                     <i class="fas fa-clock"></i>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Horario de Atención</h4>
-                                    <p class="text-gray-600">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                                    <p class="text-gray-600">Sábados: 9:00 AM - 1:00 PM</p>
+                                <div class="info-text">
+                                    <h4>Horario de Atención</h4>
+                                    <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                    <p>Sábados: 9:00 AM - 1:00 PM</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="font-bold text-gray-800 mb-4">Síguenos en Redes Sociales</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="contact-social-icon" aria-label="Facebook">
+                        <div class="info-social">
+                            <h4>Síguenos en Redes Sociales</h4>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon" aria-label="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="contact-social-icon" aria-label="LinkedIn">
+                                <a href="#" class="social-icon" aria-label="LinkedIn">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="contact-social-icon" aria-label="Instagram">
+                                <a href="#" class="social-icon" aria-label="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#" class="contact-social-icon" aria-label="Twitter">
+                                <a href="#" class="social-icon" aria-label="Twitter">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </div>
@@ -1271,129 +789,126 @@
     </section>
 
     <!-- Map Section -->
-    <section class="h-96 relative">
+    <section class="map-section">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127522.40434024287!2d-73.70546371359548!3d4.142651841323779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2de29d1f9dcf%3A0x33743e5033386ffb!2sVillavicencio%2C%20Meta!5e0!3m2!1ses!2sco!4v1650000000000!5m2!1ses!2sco" 
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Ubicación de MCG en Villavicencio, Meta"></iframe>
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de MCG en Villavicencio, Meta"></iframe>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20M%20C%20G%20para%20latinoamerica%20%28sin%20fondo%29-01-irneDS3Iz9RSZdKxd5XaSmJG4qzccM.png" 
-                             alt="MCG Logo" 
-                             class="h-10 bg-white p-1 rounded">
-                        <span class="ml-3 text-xl font-bold">MCG Latinoamérica</span>
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-info">
+                        <div class="footer-logo">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20M%20C%20G%20para%20latinoamerica%20%28sin%20fondo%29-01-irneDS3Iz9RSZdKxd5XaSmJG4qzccM.png" alt="MCG Logo">
+                            <span>MCG Latinoamérica</span>
+                        </div>
+                        <p class="footer-description">
+                            Expertos en Consultoría Integral para el Desarrollo Territorial, 
+                            Ambiental y Empresarial en Latinoamérica.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="text-gray-400 mb-6">
-                        Expertos en Consultoría Integral para el Desarrollo Territorial, 
-                        Ambiental y Empresarial.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
+                    <div class="footer-links">
+                        <h3 class="footer-title">Enlaces Rápidos</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#nosotros">Nosotros</a></li>
+                            <li><a href="#servicios">Servicios</a></li>
+                            <li><a href="#proyectos">Proyectos</a></li>
+                            <li><a href="#topografia">Topografía</a></li>
+                            <li><a href="#clientes">Clientes</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Enlaces Rápidos</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-                        <li><a href="#nosotros" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
-                        <li><a href="#servicios" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
-                        <li><a href="#proyectos" class="text-gray-400 hover:text-white transition-colors">Proyectos</a></li>
-                        <li><a href="#clientes" class="text-gray-400 hover:text-white transition-colors">Clientes</a></li>
-                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition-colors">Testimonios</a></li>
-                        <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#contacto" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Servicios</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gestión Territorial</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Servicios Públicos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Estudios Ambientales</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Servicios Jurídicos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Ingeniería Civil</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tecnología y Educación</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-6">Contacto</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">Calle Principal #123, Villavicencio, Meta</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">+57 (8) 123 4567</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fab fa-whatsapp mt-1 mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">+57 300 123 4567</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
-                            <span class="text-gray-400">info@mcglatam.com</span>
-                        </li>
-                    </ul>
+                    <div class="footer-services">
+                        <h3 class="footer-title">Servicios</h3>
+                        <ul class="footer-menu">
+                            <li><a href="#servicios">Gestión Territorial</a></li>
+                            <li><a href="#servicios">Estudios Ambientales</a></li>
+                            <li><a href="#servicios">Topografía y SIG</a></li>
+                            <li><a href="#servicios">Servicios Jurídicos</a></li>
+                            <li><a href="#servicios">Ingeniería Civil</a></li>
+                            <li><a href="#servicios">Tecnología y Educación</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h3 class="footer-title">Contacto</h3>
+                        <ul class="footer-contact-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Calle Principal #123, Villavicencio, Meta</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+57 (8) 123 4567</span>
+                            </li>
+                            <li>
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+57 300 123 4567</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@mcglatam.com</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400">
-                    &copy; 2023 MCG para Latinoamérica. Todos los derechos reservados.
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">
+                    &copy; <span id="current-year">2023</span> MCG para Latinoamérica. Todos los derechos reservados.
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 bg-purple-600 text-white rounded-full p-3 shadow-lg opacity-0 invisible transition-all z-50" aria-label="Volver arriba">
+    <a href="#" id="back-to-top" class="back-to-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
-    </button>
+    </a>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 bg-green-500 text-white rounded-full p-4 shadow-lg z-50 hover:bg-green-600 transition-colors" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Cookie Consent -->
-    <div id="cookie-consent" class="fixed bottom-0 left-0 w-full bg-gray-900 text-white py-4 px-6 z-40 hidden">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <p class="mb-4 md:mb-0">Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta nuestra <a href="#" class="text-purple-300 hover:text-purple-100">política de privacidad</a>.</p>
-            <div class="flex space-x-4">
-                <button id="accept-cookies" class="btn-primary text-sm py-2 px-4">Aceptar</button>
-                <button id="decline-cookies" class="btn-secondary text-sm py-2 px-4">Rechazar</button>
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="container">
+            <div class="cookie-content">
+                <p>Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta nuestra <a href="#">política de privacidad</a>.</p>
+                <div class="cookie-buttons">
+                    <button id="accept-cookies" class="btn btn-sm btn-primary">Aceptar</button>
+                    <button id="decline-cookies" class="btn btn-sm btn-outline">Rechazar</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-

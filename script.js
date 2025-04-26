@@ -1,278 +1,301 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', function() {
   // Preloader
-  const preloader = document.getElementById("preloader")
-  window.addEventListener("load", () => {
-    preloader.style.opacity = "0"
-    setTimeout(() => {
-      preloader.style.display = "none"
-    }, 500)
-  })
+  const preloader = document.getElementById('preloader');
+  const loaderProgress = document.querySelector('.loader-progress');
+  
+  let progress = 0;
+  const interval = setInterval(() => {
+      progress += 5;
+      loaderProgress.style.width = `${progress}%`;
+      
+      if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+              preloader.style.opacity = '0';
+              setTimeout(() => {
+                  preloader.style.display = 'none';
+              }, 500);
+          }, 500);
+      }
+  }, 100);
 
-  // Mobile Menu Toggle
-  const menuToggle = document.getElementById("menu-toggle")
-  const mobileMenu = document.getElementById("mobile-menu")
+  // Header Scroll Effect
+  const header = document.getElementById('header');
+  const logoSpan = document.querySelector('.logo span');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navToggleSpans = document.querySelectorAll('.nav-toggle span');
+  
+  window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+      } else {
+          header.classList.remove('scrolled');
+      }
+  });
 
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden")
-    // Accessibility
-    const expanded = menuToggle.getAttribute("aria-expanded") === "true" || false
-    menuToggle.setAttribute("aria-expanded", !expanded)
-    menuToggle.setAttribute("aria-label", expanded ? "Abrir menú de navegación" : "Cerrar menú de navegación")
-  })
+  // Mobile Navigation
+  const mobileNav = document.querySelector('.mobile-nav');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  
+  navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+  });
+  
+  mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+      });
+  });
 
-  // Navbar Scroll Effect
-  const navbar = document.getElementById("navbar")
-  const navLinks = document.querySelectorAll(".nav-link")
-  const menuIcon = document.querySelector("#menu-toggle i")
-  const logo = document.querySelector("#navbar img")
+  // Smooth Scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+              const headerHeight = header.offsetHeight;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              
+              window.scrollTo({
+                  top: targetPosition,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.remove("bg-transparent")
-      navbar.classList.add("bg-white")
-      navbar.classList.add("shadow-md")
-
-      // Change text color of nav links
-      navLinks.forEach((link) => {
-        link.classList.remove("text-white")
-        link.classList.add("text-gray-800")
-      })
-
-      // Change menu icon color
-      menuIcon.classList.remove("text-white")
-      menuIcon.classList.add("text-gray-800")
-    } else {
-      navbar.classList.add("bg-transparent")
-      navbar.classList.remove("bg-white")
-      navbar.classList.remove("shadow-md")
-
-      // Restore text color of nav links
-      navLinks.forEach((link) => {
-        link.classList.add("text-white")
-        link.classList.remove("text-gray-800")
-      })
-
-      // Restore menu icon color
-      menuIcon.classList.add("text-white")
-      menuIcon.classList.remove("text-gray-800")
-    }
-  })
-
-  // Initialize AOS (Animate on Scroll)
-  if (typeof AOS !== "undefined") {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-      mirror: false,
-    })
-  } else {
-    console.warn("AOS is not defined. Make sure to include the AOS library.")
+  // Active Navigation Link on Scroll
+  const sections = document.querySelectorAll('section[id]');
+  
+  function highlightNavLink() {
+      const scrollY = window.pageYOffset;
+      const headerHeight = header.offsetHeight;
+      
+      sections.forEach(section => {
+          const sectionTop = section.offsetTop - headerHeight - 100;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+              document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.add('active');
+          } else {
+              document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.remove('active');
+          }
+      });
   }
+  
+  window.addEventListener('scroll', highlightNavLink);
 
-  // Service Tabs
-  const serviceTabs = document.querySelectorAll(".service-tab")
-  const serviceContents = document.querySelectorAll(".service-tab-content")
+  // Services Tabs
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  
+  tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          tabBtns.forEach(b => b.classList.remove('active'));
+          
+          // Add active class to clicked button
+          btn.classList.add('active');
+          
+          // Hide all panels
+          tabPanels.forEach(panel => panel.classList.remove('active'));
+          
+          // Show the corresponding panel
+          const tabId = btn.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+      });
+  });
 
-  serviceTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      // Remove active class from all tabs
-      serviceTabs.forEach((t) => {
-        t.classList.remove("active")
-        t.setAttribute("aria-selected", "false")
-      })
+  // Clients Categories
+  const categoryItems = document.querySelectorAll('.category-item');
+  const clientsLists = document.querySelectorAll('.clients-list');
+  
+  categoryItems.forEach(item => {
+      item.addEventListener('click', () => {
+          // Remove active class from all items
+          categoryItems.forEach(i => i.classList.remove('active'));
+          
+          // Add active class to clicked item
+          item.classList.add('active');
+          
+          // Hide all lists
+          clientsLists.forEach(list => list.classList.remove('active'));
+          
+          // Show the corresponding list
+          const categoryId = item.getAttribute('data-category');
+          document.getElementById(categoryId).classList.add('active');
+      });
+  });
 
-      // Add active class to clicked tab
-      tab.classList.add("active")
-      tab.setAttribute("aria-selected", "true")
-
-      // Hide all content
-      serviceContents.forEach((content) => content.classList.remove("active"))
-
-      // Show content related to clicked tab
-      const targetId = tab.getAttribute("data-target")
-      document.getElementById(targetId).classList.add("active")
-    })
-  })
-
-  // Testimonials Slider
-  const testimonialsSlider = document.getElementById("testimonials-slider")
-  const testimonialPrev = document.getElementById("testimonial-prev")
-  const testimonialNext = document.getElementById("testimonial-next")
-  const testimonialCards = document.querySelectorAll(".testimonial-card")
-  let currentTestimonial = 0
-
-  function showTestimonial(index) {
-    const slideWidth = testimonialsSlider.clientWidth
-    testimonialsSlider.scrollLeft = slideWidth * index
-    currentTestimonial = index
-  }
-
-  testimonialPrev.addEventListener("click", () => {
-    currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length
-    showTestimonial(currentTestimonial)
-  })
-
-  testimonialNext.addEventListener("click", () => {
-    currentTestimonial = (currentTestimonial + 1) % testimonialCards.length
-    showTestimonial(currentTestimonial)
-  })
-
-  // Auto-rotate testimonials
-  let testimonialInterval = setInterval(() => {
-    currentTestimonial = (currentTestimonial + 1) % testimonialCards.length
-    showTestimonial(currentTestimonial)
-  }, 5000)
-
-  testimonialsSlider.addEventListener("mouseenter", () => {
-    clearInterval(testimonialInterval)
-  })
-
-  testimonialsSlider.addEventListener("mouseleave", () => {
-    testimonialInterval = setInterval(() => {
-      currentTestimonial = (currentTestimonial + 1) % testimonialCards.length
-      showTestimonial(currentTestimonial)
-    }, 5000)
-  })
-
-  // Animate Counters
+  // Stats Counter Animation
+  const statNumbers = document.querySelectorAll('.stat-number');
+  let counted = false;
+  
   function animateCounter(element, target, duration) {
-    let start = 0
-    const increment = target / (duration / 16)
-
-    const timer = setInterval(() => {
-      start += increment
-      element.textContent = Math.floor(start)
-
-      if (start >= target) {
-        element.textContent = target
-        clearInterval(timer)
-      }
-    }, 16)
+      let start = 0;
+      const increment = target / (duration / 16);
+      
+      const timer = setInterval(() => {
+          start += increment;
+          element.textContent = Math.floor(start);
+          
+          if (start >= target) {
+              element.textContent = target;
+              clearInterval(timer);
+          }
+      }, 16);
   }
-
-  // Initialize counters when they come into view
-  const counters = document.querySelectorAll(".counter")
-  let counted = false
-
+  
   function checkCounters() {
-    if (counters.length > 0 && !counted) {
-      const windowHeight = window.innerHeight
-      const counterSection = counters[0].parentElement.parentElement.parentElement
-      const counterTop = counterSection.getBoundingClientRect().top
-
-      if (counterTop < windowHeight - 100) {
-        counters.forEach((counter) => {
-          const target = Number.parseInt(counter.getAttribute("data-target"))
-          animateCounter(counter, target, 2000)
-        })
-        counted = true
+      if (statNumbers.length > 0 && !counted) {
+          const windowHeight = window.innerHeight;
+          const statsSection = document.querySelector('.stats-section');
+          const statsTop = statsSection.getBoundingClientRect().top;
+          
+          if (statsTop < windowHeight - 100) {
+              statNumbers.forEach(number => {
+                  const target = parseInt(number.getAttribute('data-count'));
+                  animateCounter(number, target, 2000);
+              });
+              counted = true;
+          }
       }
-    }
   }
-
-  window.addEventListener("scroll", checkCounters)
-  checkCounters() // Check on load
+  
+  window.addEventListener('scroll', checkCounters);
+  checkCounters(); // Check on load
 
   // Back to Top Button
-  const backToTopButton = document.getElementById("back-to-top")
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopButton.classList.add("visible")
-    } else {
-      backToTopButton.classList.remove("visible")
-    }
-  })
-
-  backToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  })
-
-  // Smooth Scrolling for Anchor Links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault()
-
-      const targetId = this.getAttribute("href")
-      if (targetId === "#") return
-
-      const targetElement = document.querySelector(targetId)
-      if (targetElement) {
-        // Close mobile menu if open
-        if (!mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.add("hidden")
-          menuToggle.setAttribute("aria-expanded", "false")
-        }
-
-        // Scroll to target
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        })
+  const backToTopBtn = document.getElementById('back-to-top');
+  
+  window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('visible');
+      } else {
+          backToTopBtn.classList.remove('visible');
       }
-    })
-  })
+  });
+  
+  backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
 
-  // Form Submission
-  const contactForm = document.getElementById("contact-form")
-
+  // Contact Form Submission
+  const contactForm = document.getElementById('contact-form');
+  
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault()
-
-      // Get form data
-      const formData = new FormData(contactForm)
-      const formObject = {}
-      formData.forEach((value, key) => {
-        formObject[key] = value
-      })
-
-      // Here you would typically send the data to your server
-      console.log("Form submitted with data:", formObject)
-
-      // Show success message
-      const successMessage = document.createElement("div")
-      successMessage.className = "p-4 mt-4 bg-green-100 text-green-800 rounded-lg"
-      successMessage.setAttribute("role", "alert")
-      successMessage.innerHTML = "¡Gracias por tu mensaje! Te contactaremos pronto."
-
-      contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling)
-
-      // Remove success message after 5 seconds
-      setTimeout(() => {
-        successMessage.remove()
-      }, 5000)
-
-      // Reset form
-      contactForm.reset()
-    })
+      contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // Get form data
+          const formData = new FormData(contactForm);
+          const formObject = {};
+          
+          formData.forEach((value, key) => {
+              formObject[key] = value;
+          });
+          
+          // Here you would typically send the data to your server
+          console.log('Form submitted with data:', formObject);
+          
+          // Show success message
+          const successMessage = document.createElement('div');
+          successMessage.className = 'form-success';
+          successMessage.innerHTML = `
+              <div class="success-icon">
+                  <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="success-text">
+                  <h4>¡Mensaje Enviado!</h4>
+                  <p>Gracias por contactarnos. Te responderemos a la brevedad.</p>
+              </div>
+          `;
+          
+          contactForm.innerHTML = '';
+          contactForm.appendChild(successMessage);
+      });
   }
 
   // Cookie Consent
-  const cookieConsent = document.getElementById("cookie-consent")
-  const acceptCookies = document.getElementById("accept-cookies")
-  const declineCookies = document.getElementById("decline-cookies")
-
+  const cookieConsent = document.getElementById('cookie-consent');
+  const acceptCookies = document.getElementById('accept-cookies');
+  const declineCookies = document.getElementById('decline-cookies');
+  
   // Check if user has already made a choice
-  const cookieChoice = localStorage.getItem("cookieConsent")
-
+  const cookieChoice = localStorage.getItem('cookieConsent');
+  
   if (!cookieChoice) {
-    // Show cookie consent after 2 seconds
-    setTimeout(() => {
-      cookieConsent.classList.remove("hidden")
-    }, 2000)
+      // Show cookie consent after 2 seconds
+      setTimeout(() => {
+          cookieConsent.style.display = 'block';
+      }, 2000);
+  }
+  
+  acceptCookies.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieConsent.style.display = 'none';
+  });
+  
+  declineCookies.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      cookieConsent.style.display = 'none';
+  });
+
+  // Current Year in Footer
+  const currentYearElement = document.getElementById('current-year');
+  if (currentYearElement) {
+      currentYearElement.textContent = new Date().getFullYear();
   }
 
-  acceptCookies.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "accepted")
-    cookieConsent.classList.add("hidden")
-  })
-
-  declineCookies.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "declined")
-    cookieConsent.classList.add("hidden")
-  })
-})
+  // Image Gallery Lightbox
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  
+  if (galleryItems.length > 0) {
+      galleryItems.forEach(item => {
+          item.addEventListener('click', () => {
+              const lightbox = document.createElement('div');
+              lightbox.className = 'lightbox';
+              
+              const lightboxContent = document.createElement('div');
+              lightboxContent.className = 'lightbox-content';
+              
+              const lightboxImg = document.createElement('img');
+              lightboxImg.src = item.src;
+              
+              const closeBtn = document.createElement('span');
+              closeBtn.className = 'lightbox-close';
+              closeBtn.innerHTML = '&times;';
+              
+              lightboxContent.appendChild(lightboxImg);
+              lightboxContent.appendChild(closeBtn);
+              lightbox.appendChild(lightboxContent);
+              document.body.appendChild(lightbox);
+              
+              // Prevent scrolling when lightbox is open
+              document.body.style.overflow = 'hidden';
+              
+              // Close lightbox when clicking on close button or outside the image
+              lightbox.addEventListener('click', (e) => {
+                  if (e.target === lightbox || e.target === closeBtn) {
+                      document.body.removeChild(lightbox);
+                      document.body.style.overflow = 'auto';
+                  }
+              });
+          });
+      });
+  }
+});

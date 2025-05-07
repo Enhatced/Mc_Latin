@@ -1,342 +1,454 @@
+// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false,
+        offset: 50,
+        delay: 100
+    });
+
     // Preloader
     const preloader = document.getElementById('preloader');
     const loaderProgress = document.querySelector('.loader-progress');
     
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += 5;
-        loaderProgress.style.width = `${progress}%`;
+    window.addEventListener('load', function() {
+        // Animate loader progress
+        loaderProgress.style.width = '100%';
         
-        if (progress >= 100) {
-            clearInterval(interval);
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
+        // Ensure the loader animation completes
+        setTimeout(function() {
+            preloader.style.opacity = '0';
+            setTimeout(function() {
+                preloader.style.display = 'none';
+                
+                // Trigger animations after preloader is gone
+                document.querySelectorAll('.hero-title, .hero-subtitle, .hero-buttons, .hero-graphic')
+                    .forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
             }, 500);
-        }
-    }, 100);
-  
-    // Header Scroll Effect
+        }, 1000);
+    });
+
+    // Header scroll effect
     const header = document.getElementById('header');
-    const logoSpan = document.querySelector('.logo span');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navToggle = document.querySelector('.nav-toggle');
-    const navToggleSpans = document.querySelectorAll('.nav-toggle span');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+    const scrollThreshold = 100;
+
+    function handleHeaderScroll() {
+        if (window.scrollY > scrollThreshold) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
-  
-    // Mobile Navigation
+    }
+
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll(); // Initial check
+
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
     const mobileNav = document.querySelector('.mobile-nav');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
+    const body = document.body;
+
+    navToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
         mobileNav.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
+        body.classList.toggle('no-scroll');
     });
-    
+
     mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', function() {
             navToggle.classList.remove('active');
             mobileNav.classList.remove('active');
-            document.body.classList.remove('no-scroll');
+            body.classList.remove('no-scroll');
         });
     });
-  
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            const targetSection = document.querySelector(targetId);
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - header.offsetHeight;
                 
                 window.scrollTo({
-                    top: targetPosition,
+                    top: offsetTop,
                     behavior: 'smooth'
                 });
             }
         });
     });
-  
-    // Active Navigation Link on Scroll
+
+    // Active navigation link on scroll
     const sections = document.querySelectorAll('section[id]');
     
-    function highlightNavLink() {
-        const scrollY = window.pageYOffset;
-        const headerHeight = header.offsetHeight;
+    function highlightNavOnScroll() {
+        const scrollPosition = window.scrollY + header.offsetHeight + 100;
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 100;
+            const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
             
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.remove('active');
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + sectionId) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     }
     
-    window.addEventListener('scroll', highlightNavLink);
-  
+    window.addEventListener('scroll', highlightNavOnScroll);
+    highlightNavOnScroll(); // Initial check
+
     // Services Tabs
-    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
     
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            tabBtns.forEach(b => b.classList.remove('active'));
-            
-            // Add active class to clicked button
-            btn.classList.add('active');
-            
-            // Hide all panels
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons and panels
+            tabButtons.forEach(btn => btn.classList.remove('active'));
             tabPanels.forEach(panel => panel.classList.remove('active'));
             
-            // Show the corresponding panel
-            const tabId = btn.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Show corresponding panel with animation
+            const tabId = this.getAttribute('data-tab');
+            const targetPanel = document.getElementById(tabId);
+            
+            // Apply fade-in animation
+            targetPanel.style.opacity = '0';
+            targetPanel.classList.add('active');
+            
+            setTimeout(() => {
+                targetPanel.style.opacity = '1';
+            }, 50);
         });
     });
-  
+
     // Gallery Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterButtons = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
     
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
             // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
+            filterButtons.forEach(btn => btn.classList.remove('active'));
             
             // Add active class to clicked button
-            btn.classList.add('active');
+            this.classList.add('active');
             
-            const filter = btn.getAttribute('data-filter');
+            const filterValue = this.getAttribute('data-filter');
             
             galleryItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(`filter-${filter}`)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                // Add fade-out animation
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    if (filterValue === 'all' || item.classList.contains('filter-' + filterValue)) {
+                        item.style.display = 'block';
+                        // Add fade-in animation
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }, 300);
             });
         });
     });
-  
+
     // Load More Gallery Items
     const loadMoreBtn = document.getElementById('load-more-btn');
     let currentItems = 8;
     
     if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', () => {
+        loadMoreBtn.addEventListener('click', function() {
             const galleryItems = document.querySelectorAll('.gallery-item');
-            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            const visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
             
-            let visibleItems = 0;
-            
-            for (let i = 0; i < galleryItems.length; i++) {
-                if ((activeFilter === 'all' || galleryItems[i].classList.contains(`filter-${activeFilter}`)) && 
-                    i >= currentItems && visibleItems < 4) {
-                    galleryItems[i].style.display = 'block';
-                    visibleItems++;
+            for (let i = currentItems; i < currentItems + 4; i++) {
+                if (visibleItems[i]) {
+                    visibleItems[i].style.opacity = '0';
+                    visibleItems[i].style.transform = 'scale(0.95)';
+                    visibleItems[i].style.display = 'block';
+                    
+                    // Use closure to capture the current item
+                    (function(item) {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50 * (i - currentItems));
+                    })(visibleItems[i]);
                 }
             }
             
-            currentItems += visibleItems;
+            currentItems += 4;
             
             // Hide load more button if all items are visible
-            if (currentItems >= galleryItems.length) {
-                loadMoreBtn.style.display = 'none';
+            if (currentItems >= visibleItems.length) {
+                loadMoreBtn.style.opacity = '0';
+                setTimeout(() => {
+                    loadMoreBtn.style.display = 'none';
+                }, 300);
             }
         });
     }
-  
+
     // Stats Counter Animation
     const statNumbers = document.querySelectorAll('.stat-number');
-    let counted = false;
+    let statsAnimated = false;
     
-    function animateCounter(element, target, duration) {
-        let start = 0;
-        const increment = target / (duration / 16);
+    function animateStats() {
+        if (statsAnimated) return;
         
-        const timer = setInterval(() => {
-            start += increment;
-            element.textContent = Math.floor(start);
+        const statsSection = document.querySelector('.stats-section');
+        const statsSectionTop = statsSection.offsetTop;
+        const statsSectionHeight = statsSection.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > statsSectionTop - windowHeight + 200) {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    stat.textContent = Math.floor(current);
+                    
+                    if (current >= target) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    }
+                }, 16);
+            });
             
-            if (start >= target) {
-                element.textContent = target;
-                clearInterval(timer);
-            }
-        }, 16);
-    }
-    
-    function checkCounters() {
-        if (statNumbers.length > 0 && !counted) {
-            const windowHeight = window.innerHeight;
-            const statsSection = document.querySelector('.stats-section');
-            const statsTop = statsSection.getBoundingClientRect().top;
-            
-            if (statsTop < windowHeight - 100) {
-                statNumbers.forEach(number => {
-                    const target = parseInt(number.getAttribute('data-count'));
-                    animateCounter(number, target, 2000);
-                });
-                counted = true;
-            }
+            statsAnimated = true;
         }
     }
     
-    window.addEventListener('scroll', checkCounters);
-    checkCounters(); // Check on load
-  
+    window.addEventListener('scroll', animateStats);
+    animateStats(); // Initial check
+
     // Back to Top Button
     const backToTopBtn = document.getElementById('back-to-top');
     
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.classList.add('visible');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('active');
         } else {
-            backToTopBtn.classList.remove('visible');
+            backToTopBtn.classList.remove('active');
         }
     });
     
-    backToTopBtn.addEventListener('click', (e) => {
+    backToTopBtn.addEventListener('click', function(e) {
         e.preventDefault();
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-  
-    // Contact Form Submission
+
+    // WhatsApp Float Button
+    const whatsappFloat = document.getElementById('whatsapp-float');
     const contactForm = document.getElementById('contact-form');
     
+    whatsappFloat.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get form data if available
+        let message = "Hola, estoy interesado en sus servicios. ";
+        
+        if (contactForm) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const userMessage = document.getElementById('message').value;
+            
+            if (name || email || phone || service || userMessage) {
+                message = `*Consulta desde MCG Latinoamérica*\n\n*Nombre:* ${name || '[Nombre]'}\n*Email:* ${email || '[Email]'}\n*Teléfono:* ${phone || '[Teléfono]'}\n*Servicio de interés:* ${service || '[No especificado]'}\n*Mensaje:* ${userMessage || '[No especificado]'}`;
+            }
+        }
+        
+        // Encode the message for WhatsApp URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Open WhatsApp with the pre-filled message
+        window.open(`https://wa.me/573001234567?text=${encodedMessage}`, '_blank');
+    });
+
+    // Contact Form Submission with animation
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(contactForm);
-            const formObject = {};
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
             
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show a success message
             
-            // Here you would typically send the data to your server
-            console.log('Form submitted with data:', formObject);
-            
-            // Show success message
+            // Create success message with animation
             const successMessage = document.createElement('div');
             successMessage.className = 'form-success';
+            successMessage.style.opacity = '0';
+            successMessage.style.transform = 'translateY(20px)';
             successMessage.innerHTML = `
                 <div class="success-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <div class="success-text">
-                    <h4>¡Mensaje Enviado!</h4>
-                    <p>Gracias por contactarnos. Te responderemos a la brevedad.</p>
-                </div>
+                <h3>¡Mensaje Enviado!</h3>
+                <p>Gracias ${formData.name}, hemos recibido tu mensaje. Nos pondremos en contacto contigo pronto.</p>
             `;
             
+            // Replace form with success message
             contactForm.innerHTML = '';
             contactForm.appendChild(successMessage);
+            
+            // Animate success message
+            setTimeout(() => {
+                successMessage.style.opacity = '1';
+                successMessage.style.transform = 'translateY(0)';
+            }, 100);
+            
+            // Optional: Reset form after some time
+            // setTimeout(() => {
+            //     contactForm.reset();
+            //     contactForm.removeChild(successMessage);
+            // }, 5000);
         });
     }
-  
-    // Cookie Consent
+
+    // Cookie Consent with animation
     const cookieConsent = document.getElementById('cookie-consent');
-    const acceptCookies = document.getElementById('accept-cookies');
-    const declineCookies = document.getElementById('decline-cookies');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+    const declineCookiesBtn = document.getElementById('decline-cookies');
     
     // Check if user has already made a choice
-    const cookieChoice = localStorage.getItem('cookieConsent');
+    const cookieChoice = localStorage.getItem('cookieChoice');
     
     if (!cookieChoice) {
-        // Show cookie consent after 2 seconds
+        // Show cookie consent after a delay
         setTimeout(() => {
-            cookieConsent.style.display = 'block';
+            cookieConsent.classList.add('active');
         }, 2000);
     }
     
-    acceptCookies.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'accepted');
-        cookieConsent.style.display = 'none';
+    acceptCookiesBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieChoice', 'accepted');
+        cookieConsent.classList.remove('active');
+        
+        // Here you would typically initialize analytics or other cookie-dependent scripts
     });
     
-    declineCookies.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'declined');
-        cookieConsent.style.display = 'none';
+    declineCookiesBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieChoice', 'declined');
+        cookieConsent.classList.remove('active');
     });
-  
-    // Current Year in Footer
+
+    // Update copyright year
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
-  
-    // Image Gallery Lightbox
-    const galleryItemImages = document.querySelectorAll('.gallery-item img');
     
-    if (galleryItemImages.length > 0) {
-        galleryItemImages.forEach(item => {
-            item.addEventListener('click', () => {
-                const lightbox = document.createElement('div');
-                lightbox.className = 'lightbox';
-                
-                const lightboxContent = document.createElement('div');
-                lightboxContent.className = 'lightbox-content';
-                
-                const lightboxImg = document.createElement('img');
-                lightboxImg.src = item.src;
-                
-                const closeBtn = document.createElement('span');
-                closeBtn.className = 'lightbox-close';
-                closeBtn.innerHTML = '&times;';
-                
-                lightboxContent.appendChild(lightboxImg);
-                lightboxContent.appendChild(closeBtn);
-                lightbox.appendChild(lightboxContent);
-                document.body.appendChild(lightbox);
-                
-                // Prevent scrolling when lightbox is open
-                document.body.style.overflow = 'hidden';
-                
-                // Close lightbox when clicking on close button or outside the image
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox || e.target === closeBtn) {
-                        document.body.removeChild(lightbox);
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-            });
+    // Add parallax effect to hero section
+    const heroSection = document.querySelector('.hero-section');
+    const heroBackground = document.querySelector('.hero-background');
+    
+    if (heroSection && heroBackground) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const translateY = scrollPosition * 0.3;
+            
+            heroBackground.style.transform = `translateY(${translateY}px)`;
         });
     }
-  
-    // AOS Animation Initialization (if AOS is included)
-    let AOS;
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+    
+    // Add hover effects to project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const image = this.querySelector('.project-image img');
+            image.style.transform = 'scale(1.1)';
         });
-    }
-  });
+        
+        card.addEventListener('mouseleave', function() {
+            const image = this.querySelector('.project-image img');
+            image.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Add animation to value cards
+    const valueCards = document.querySelectorAll('.value-card');
+    
+    valueCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Add animation to feature items
+    const featureItems = document.querySelectorAll('.feature-item');
+    
+    featureItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Add animation to client items
+    const clientItems = document.querySelectorAll('.client-item');
+    
+    clientItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.05}s`;
+    });
+    
+    // Add animation to gallery items
+    const galleryItemsAll = document.querySelectorAll('.gallery-item');
+    
+    galleryItemsAll.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.05}s`;
+    });
+    
+    // Add animation to form inputs
+    const formInputs = document.querySelectorAll('input, select, textarea');
+    
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+    });
+});
